@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": "aaa",
+    "database": "my_crm",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "my_crm",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
