@@ -12,6 +12,15 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vmd.api+json" }));
 
+// CORS
+function setupCORS(req, res, next) {
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-type,Accept,X-Access-Token,X-Key');
+	res.header('Access-Control-Allow-Origin', '*');
+	next();
+}
+app.all('/*', setupCORS);
+
 //static directory
 app.use(express.static('public'));
 
