@@ -28,7 +28,7 @@ apiRoutes(app,db);
 
 db.sequelize.sync().then(function(){
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
 	console.log(`Listening on port ${PORT}`);
 	});
 });
