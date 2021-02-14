@@ -7,9 +7,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "bac55b0efa383c",
-    "password": "d6659e7e",
-    "database": "heroku_d74edac5bbe0c32",
+    "username": "bf9201b7fe5081",
+    "password": "76683153",
+    "database": "heroku_71990f9d2153fc3",
     "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   }
