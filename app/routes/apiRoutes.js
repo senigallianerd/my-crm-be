@@ -1,5 +1,9 @@
 module.exports = function (app, db) {
 
+	app.get('/',(req,res) =>{
+		res.send('Welcome to My CRM BE');
+	})
+
 	app.get('/api/user-list', function(req, res) {
 		db.Users.findAll({}).then(function (result) {
 			res.json(result);
