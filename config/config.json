@@ -7,10 +7,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "my_crm",
-    "host": "127.0.0.1",
+    "username": "bac55b0efa383c",
+    "password": "d6659e7e",
+    "database": "heroku_d74edac5bbe0c32",
+    "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   }
 }
