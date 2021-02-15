@@ -1,10 +1,25 @@
+const jwt = require('jsonwebtoken');
+
 module.exports = function (app, db) {
+
+	var USERS = [
+		{ 'id': 1, 'username': 'admin', 'password':'password' }];
 
 	app.get('/',(req,res) =>{
 		res.send('Welcome to My CRM BE');
 	})
 
+	app.post('/api/auth', function(req, res) {
+		const body = req.body;
+		const user = USERS.find(user => user.username == body.username);
+		if(!user || body.password != user.password) 
+			return res.sendStatus(401);
+		const token = jwt.sign({userID: user.id}, 'secret-jwt', {expiresIn: '2h'});
+		res.send({token});
+	});	
+
 	app.get('/api/user-list', function(req, res) {
+		console.log('req',req)
 		db.Users.findAll({}).then(function (result) {
 			res.json(result);
 		});
@@ -50,7 +65,4 @@ module.exports = function (app, db) {
 			res.json(result);
 		})
 	});
-
-
-
 }
