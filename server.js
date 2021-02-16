@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000;
 const db = require('./models');
 const apiRoutes = require('./app/routes/apiRoutes.js');
 const expressJwt = require('express-jwt');
+const jwtSecret = process.env.JWT || 'secret-jwt';
 
 
 //data parsing part
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vmd.api+json" }));
-app.use(expressJwt({secret: 'secret-jwt'}).unless({path: ['/api/auth']}));
+app.use(expressJwt({secret: jwtSecret}).unless({path: ['/api/auth']}));
 
 // CORS
 function setupCORS(req, res, next) {

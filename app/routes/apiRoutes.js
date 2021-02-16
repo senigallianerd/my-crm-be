@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const jwtSecret = process.env.JWT || 'secret-jwt';
 
 module.exports = function (app, db) {
 
@@ -14,7 +15,7 @@ module.exports = function (app, db) {
 		const user = USERS.find(user => user.username == body.username);
 		if(!user || body.password != user.password) 
 			return res.sendStatus(401);
-		const token = jwt.sign({userID: user.id}, 'secret-jwt', {expiresIn: '2h'});
+		const token = jwt.sign({userID: user.id}, jwtSecret, {expiresIn: '2h'});
 		res.send({token});
 	});	
 
