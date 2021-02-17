@@ -1,13 +1,36 @@
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT || 'secret-jwt';
+const multer = require('multer');
 
 module.exports = function (app, db) {
 
-	var USERS = [
+	const USERS = [
 		{ 'id': 1, 'username': 'admin', 'password':'password' }];
 
 	app.get('/',(req,res) =>{
 		res.send('Welcome to My CRM BE');
+	})
+
+	const storage = multer.diskStorage({
+		destination: (req, file, cb) => {
+			cb(null, 'uploads');
+		},
+		filename: function (req, file, cb) {
+			cb(null, file.fieldname + '-' + Date.now())
+		}
+	});
+
+	const upload = multer({ storage: storage });
+
+	//Upload route
+	app.post('/api/upload', upload.single('attachment'), (req, res, next) => {
+		try {
+			return res.status(201).json({
+				message: 'File uploded successfully'
+			});
+		} catch (error) {
+			console.error(error);
+		}
 	})
 
 	app.post('/api/auth', function(req, res) {
