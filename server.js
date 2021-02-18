@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vmd.api+json" }));
-app.use(expressJwt({secret: jwtSecret}).unless({path: ['/api/auth','/api/upload']}));
+app.use(expressJwt({secret: jwtSecret}).unless({path: ['/api/auth','/api/upload','/api/file-list']}));
 app.use(bodyParser.urlencoded({
   extended: false
 }));

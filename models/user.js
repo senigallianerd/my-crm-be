@@ -4,6 +4,5 @@ module.exports = function(sequelize, DataTypes) {
 		surname:  DataTypes.STRING,
 		age: DataTypes.INTEGER,
 	});
-
 	return Users;
 }

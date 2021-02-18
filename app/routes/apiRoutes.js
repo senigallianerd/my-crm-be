@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT || 'secret-jwt';
 const multer = require('multer');
+const fs = require('fs');
 
 module.exports = function (app, db) {
 
@@ -89,4 +90,14 @@ module.exports = function (app, db) {
 			res.json(result);
 		})
 	});
+
+	app.get('/api/file-list', function(req, res) {
+		const result = { files: [] }
+		fs.readdirSync('./uploads/').forEach(file => {
+			console.log(file);
+			result.files.push(file)
+		  });
+		  res.json(result);
+	});
+
 }
