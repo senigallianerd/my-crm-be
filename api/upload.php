@@ -27,12 +27,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     //the existing files
     $modified_fname=uniqid(rand(10,200)).'-'.rand(1000,1000000).'-'.$actual_fname;
     //set target file path
-    $target_path = $target_path . basename($modified_fname).".".$ext;
+    $finalName =  basename($modified_fname).".".$ext;
+    $target_path = $target_path . $finalName;
     $result=array();
     //move the file to target folder
     if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
         $result["status"]=1;
         $result["message"]="Uploaded file successfully.";
+        $result["fileName"]=$finalName;
     }else{
         $result["status"]=0;
         $result["message"]="File upload failed. Please try again.";
