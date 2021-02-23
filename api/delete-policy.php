@@ -2,9 +2,9 @@
 
 include "conf.php";
 
-$id = $_GET['id'];
+$policyId = $_GET['policyId'];
 
-$sql = "DELETE FROM Policies  WHERE id=".$id;
+$sql = "DELETE FROM Policies  WHERE id=".$policyId;
 $result = $con->query($sql);
 
 echo json_encode($result);
