@@ -5,7 +5,10 @@ include "conf.php";
 $userId = $_GET['userId'];
 $policies = [];
 
-$sql = "SELECT * FROM Policies  WHERE userId='".$userId."'";
+if($userId>0)
+    $sql = "SELECT * FROM Policies  WHERE userId='".$userId."'";
+else
+    $sql = "SELECT * FROM Policies"; 
 
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
