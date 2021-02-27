@@ -8,7 +8,7 @@ $policies = [];
 if($userId>0)
     $sql = "SELECT * FROM Policies  WHERE userId='".$userId."'";
 else
-    $sql = "SELECT * FROM Policies"; 
+    $sql = "SELECT * FROM Policies,Users WHERE Policies.userId = Users.id"; 
 
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
