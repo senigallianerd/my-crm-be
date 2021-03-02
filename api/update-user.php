@@ -7,8 +7,10 @@ $id = $data["id"];
 $name = $data["name"];
 $surname = $data["surname"];
 $age = $data["age"];
+$link = $data["link"];
+$userId = $data["userId"];
 
-$sql = "UPDATE `Users` SET `name` = '".$name."' , `surname` =  '".$surname."', `age` = '".$age."' WHERE `Users`.`id` = ".$id.";";
+$sql = "UPDATE `Users` SET `name` = '".$name."' , `surname` =  '".$surname."', `age` = '".$age."' , `link` = '".$link."' , `userId` = '".$userId."' WHERE `Users`.`id` = ".$id.";";
 $result = $con->query($sql);
 
 echo json_encode($result);
