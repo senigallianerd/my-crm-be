@@ -1,6 +1,6 @@
 <?php
 
-include "conf.php";
+include "./conf/conf.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = $data["fileName"];

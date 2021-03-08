@@ -1,6 +1,6 @@
 <?php
 
-include "conf.php";
+include "./conf/conf.php";
 
 $userId = $_GET['userId'];
 $policies = [];
