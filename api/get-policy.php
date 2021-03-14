@@ -6,7 +6,7 @@ $userId = $_GET['userId'];
 $policies = [];
 
 if($userId>0)
-    $sql = "SELECT * FROM Policies  WHERE userId='".$userId."'";
+    $sql = "SELECT * FROM Policies,Insurances WHERE userId='".$userId."' and Insurances.id = Policies.insuranceId";
 else
     $sql = "SELECT * FROM Policies,Users WHERE Policies.userId = Users.id"; 
 
