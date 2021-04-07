@@ -3,12 +3,51 @@
 include "./conf/conf.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
-$name = $data["name"];
-$surname = $data["surname"];
-$age = $data["age"];
-$link = $data["link"];
+$nome = $data["nome"];
+$cognome = $data["cognome"];
+$note = $data["note"];
+$azienda = $data["azienda"];
+$collaboratore = $data["collaboratore"];
+$cellulare = $data["cellulare"];
+$telCasa = $data["telCasa"];
+$telUfficio = $data["telUfficio"];
+$email = $data["email"];
+$secondaEmail = $data["secondaEmail"];
+$PEC = $data["PEC"];
+$indirizzoResidenza = $data["indirizzoResidenza"];
+$occupazione = $data["occupazione"];
+$dataNascita = $data["dataNascita"];
+$codiceFiscale = $data["codiceFiscale"];
+$cartaIdentita = $data["cartaIdentita"];
+$partitaIva = $data["partitaIva"];
+$sdi = $data["sdi"];
+$iban = $data["iban"];
+$hobby = $data["hobby"];
 
-$sql = "INSERT INTO `Users` (`id`, `name`, `surname`, `age`, `link`) VALUES (NULL, '".$name."', '".$surname."', '".$age."', '".$link."');";
+$sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
+                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `partitaIva`, `sdi`, `iban`, `hobby`) 
+                            VALUES 
+                            (NULL, 
+                            '".$nome."', 
+                            '".$cognome."', 
+                            '".$note."', 
+                            '".$azienda."', 
+                            '".$collaboratore."', 
+                            '".$cellulare."', 
+                            '".$telCasa."', 
+                            '".$telUfficio."', 
+                            '".$email."', 
+                            '".$secondaEmail."', 
+                            '".$PEC."', 
+                            '".$indirizzoResidenza."', 
+                            '".$occupazione."', 
+                            '".$dataNascita."', 
+                            '".$codiceFiscale."', 
+                            '".$cartaIdentita."', 
+                            '".$partitaIva."', 
+                            '".$sdi."', 
+                            '".$iban."', 
+                            '".$hobby."');";
 
 $result = $con->query($sql);
 

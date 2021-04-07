@@ -3,8 +3,8 @@
 include "./conf/conf.php";
 
 $id = $_GET['id'];
-$name = $_GET['name'];
-$surname = $_GET['surname'];
+$nome = $_GET['nome'];
+$cognome = $_GET['cognome'];
 $multiple = false;
 
 if($id)
@@ -12,7 +12,7 @@ if($id)
 else{
     $multiple = true;
     $users = [];
-    $sql = "SELECT * FROM Users WHERE name LIKE '".$name."%' OR surname LIKE '".$surname."%'";
+    $sql = "SELECT * FROM Users WHERE nome LIKE '".$nome."%' OR cognome LIKE '".$cognome."%'";
 }
 
 $result = $con->query($sql);
