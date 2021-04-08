@@ -24,6 +24,9 @@ $sdi = $data["sdi"];
 $iban = $data["iban"];
 $hobby = $data["hobby"];
 
+if(!$nome || !$cognome)
+    return;
+
 $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
                             `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `partitaIva`, `sdi`, `iban`, `hobby`) 
                             VALUES 
