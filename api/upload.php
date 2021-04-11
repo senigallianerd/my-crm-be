@@ -19,10 +19,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $target_path = "uploads/";
     //replace special chars in the file name
     $actual_fname=$_FILES['file']['name'];
+    $actual_fname = str_replace($ext, '', $actual_fname);
     $actual_fname=preg_replace('/[^A-Za-z0-9\-]/', '', $actual_fname);
     //set random unique name why because file name duplicate will replace
     //the existing files
-    $modified_fname=uniqid(rand(10,200)).'-'.rand(1000,1000000).'-'.$actual_fname;
+    $modified_fname=rand(1,1000).'-'.$actual_fname;
     //set target file path
     $finalName =  basename($modified_fname).".".$ext;
     $target_path = $target_path . $finalName;
