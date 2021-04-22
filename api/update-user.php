@@ -20,6 +20,7 @@ $occupazione = $data["occupazione"];
 $dataNascita = $data["dataNascita"];
 $codiceFiscale = $data["codiceFiscale"];
 $cartaIdentita = $data["cartaIdentita"];
+$dataScadenzaCartaIdentita = $data["dataScadenzaCartaIdentita"];
 $partitaIva = $data["partitaIva"];
 $sdi = $data["sdi"];
 $iban = $data["iban"];
@@ -42,11 +43,14 @@ $sql = "UPDATE `Users` SET
                 `occupazione` = '".$occupazione."' ,
                 `dataNascita` = '".$dataNascita."' ,
                 `codiceFiscale` = '".$codiceFiscale."' ,
+                `cartaIdentita` = '".$cartaIdentita."' ,
+                `dataScadenzaCartaIdentita` = '".$dataScadenzaCartaIdentita."' ,
                 `partitaIva` = '".$partitaIva."' ,
                 `sdi` = '".$sdi."' ,
                 `iban` = '".$iban."' ,
                 `hobby` = '".$hobby."' 
                 WHERE `Users`.`id` = ".$id.";";
+
 $result = $con->query($sql);
 
 echo json_encode($result);

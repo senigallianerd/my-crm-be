@@ -19,6 +19,7 @@ $occupazione = $data["occupazione"];
 $dataNascita = $data["dataNascita"];
 $codiceFiscale = $data["codiceFiscale"];
 $cartaIdentita = $data["cartaIdentita"];
+$dataScadenzaCartaIdentita = $data["dataScadenzaCartaIdentita"];
 $partitaIva = $data["partitaIva"];
 $sdi = $data["sdi"];
 $iban = $data["iban"];
@@ -28,7 +29,7 @@ if(!$nome || !$cognome)
     return;
 
 $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
-                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `partitaIva`, `sdi`, `iban`, `hobby`) 
+                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`) 
                             VALUES 
                             (NULL, 
                             '".$nome."', 
@@ -47,6 +48,7 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".$dataNascita."', 
                             '".$codiceFiscale."', 
                             '".$cartaIdentita."', 
+                            '".$dataScadenzaCartaIdentita."', 
                             '".$partitaIva."', 
                             '".$sdi."', 
                             '".$iban."', 
