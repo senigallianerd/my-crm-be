@@ -13,6 +13,8 @@ $premioAnnuale =$data["premioAnnuale"];
 $premioRata = $data["premioRata"];
 $fattura = $data["fattura"];
 $note = $data["note"];
+$userId = $data["userId"];
+$fileName = $data["fileName"];
 
 if($numero)
     $sql = "INSERT INTO `Insurances` (`id`, 
@@ -25,7 +27,9 @@ if($numero)
                                        `premioAnnuale`, 
                                        `premioRata`, 
                                        `fattura`, 
-                                       `note`) VALUES (NULL, 
+                                       `note`,
+                                       `userId`,
+                                       `fileName`) VALUES (NULL, 
                                         '".$numero."', 
                                         '".$ramo."', 
                                         '".$compagnia."', 
@@ -35,7 +39,9 @@ if($numero)
                                         '".$premioAnnuale."', 
                                         '".$premioRata."', 
                                         '".$fattura."', 
-                                        '".$note."');";
+                                        '".$note."', 
+                                        '".$userId."', 
+                                        '".$fileName."');";
 
 $result = $con->query($sql);
 
