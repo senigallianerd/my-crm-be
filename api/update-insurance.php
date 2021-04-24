@@ -14,6 +14,7 @@ $premioAnnuale =$data["premioAnnuale"];
 $premioRata = $data["premioRata"];
 $fattura = $data["fattura"];
 $note = $data["note"];
+$fileName = $data["fileName"];
 
 $sql = "UPDATE `Insurances` SET `numero` = '".$numero."', 
                                 `ramo` = '".$ramo."', 
@@ -24,6 +25,7 @@ $sql = "UPDATE `Insurances` SET `numero` = '".$numero."',
                                 `premioAnnuale` = '".$premioAnnuale."', 
                                 `premioRata` = '".$premioRata."', 
                                 `fattura` = '".$fattura."', 
+                                `fileName` = '".$fileName."', 
                                 `note` =  '".$note."' WHERE `Insurances`.`id` = ".$id.";";
 $result = $con->query($sql);
 
