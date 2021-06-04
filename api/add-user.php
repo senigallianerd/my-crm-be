@@ -8,6 +8,7 @@ $cognome = $data["cognome"];
 $note = $data["note"];
 $azienda = $data["azienda"];
 $collaboratore = $data["collaboratore"];
+$tipoContatto = $data["tipoContatto"];
 $cellulare = $data["cellulare"];
 $telCasa = $data["telCasa"];
 $telUfficio = $data["telUfficio"];
@@ -28,7 +29,7 @@ $hobby = $data["hobby"];
 if(!$nome || !$cognome)
     return;
 
-$sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
+$sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `tipoContatto`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
                             `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`) 
                             VALUES 
                             (NULL, 
@@ -37,6 +38,7 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".$note."', 
                             '".$azienda."', 
                             '".$collaboratore."', 
+                            '".$tipoContatto."', 
                             '".$cellulare."', 
                             '".$telCasa."', 
                             '".$telUfficio."', 
@@ -54,9 +56,11 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".$iban."', 
                             '".$hobby."');";
 
+
+
 $result = $con->query($sql);
 
-echo json_encode($result);
+echo json_encode($result); 
 
 $con->close();
 

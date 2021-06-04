@@ -5,10 +5,12 @@ include "./conf/conf.php";
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = $data["fileName"];
 $insuranceId = $data["insuranceId"];
-$expirationDate = $data["expirationDate"];
+$scadenzaAnnuale = $data["scadenzaAnnuale"];
 $userId = $data["userId"];
+$compagnia = $data["compagnia"];
 
-$sql = "INSERT INTO `Policies` (`id`, `insuranceId`, `fileName`, `userId`, `expirationDate`) VALUES (NULL, '".$insuranceId."', '".$fileName."', '".$userId."', '".$expirationDate."')";
+$sql = "INSERT INTO `Insurances` (`id`, `compagnia`, `fileName`, `userId`, `scadenzaAnnuale`) VALUES 
+(NULL, '".$compagnia."', '".$fileName."', '".$userId."', '".$scadenzaAnnuale."')";
 
 $result = $con->query($sql);
 
