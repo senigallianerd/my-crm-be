@@ -17,7 +17,7 @@ $userId = $data["userId"];
 $fileName = $data["fileName"];
 
 if($numero)
-    $sql = "INSERT INTO `Insurances` (`id`, 
+    $sql = "INSERT INTO `Docs` (`id`, 
                                        `numero`, 
                                        `ramo`, 
                                        `compagnia`, 
@@ -40,7 +40,7 @@ if($numero)
                                         '".$premioRata."', 
                                         '".$fattura."', 
                                         '".$note."', 
-                                        '".$userId."', 
+                                        '".$userId."', , 
                                         '".$fileName."');";
 
 $result = $con->query($sql);

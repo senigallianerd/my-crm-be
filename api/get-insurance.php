@@ -9,16 +9,16 @@ $description = $_GET['description'];
 $multiple = false;
 
 if($id)
-    $sql = "SELECT * FROM Insurances WHERE id=".$id;
+    $sql = "SELECT * FROM Docs WHERE id=".$id;
 else if($userId){
     $multiple = true;
     $insurances = [];
-    $sql = "SELECT * FROM Insurances WHERE userId=".$userId;
+    $sql = "SELECT * FROM Docs WHERE userId=".$userId;
 }
 else{
     $multiple = true;
     $insurances = [];
-    $sql = "SELECT * FROM Insurances WHERE name LIKE '".$name."%' OR surname LIKE '".$surname."%'";
+    $sql = "SELECT * FROM Docs WHERE name LIKE '".$name."%' OR surname LIKE '".$surname."%'";
 }
 
 $result = $con->query($sql);

@@ -8,9 +8,10 @@ $insuranceId = $data["insuranceId"];
 $scadenzaAnnuale = $data["scadenzaAnnuale"];
 $userId = $data["userId"];
 $compagnia = $data["compagnia"];
+$tipo = $data["tipo"];
 
-$sql = "INSERT INTO `Insurances` (`id`, `compagnia`, `fileName`, `userId`, `scadenzaAnnuale`) VALUES 
-(NULL, '".$compagnia."', '".$fileName."', '".$userId."', '".$scadenzaAnnuale."')";
+$sql = "INSERT INTO `Docs` (`id`, `compagnia`, `fileName`, `userId`, `scadenzaAnnuale`, `tipo`) VALUES 
+(NULL, '".$compagnia."', '".$fileName."', '".$userId."', '".$scadenzaAnnuale."', '".$tipo."')";
 
 $result = $con->query($sql);
 

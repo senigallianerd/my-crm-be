@@ -6,9 +6,9 @@ $userId = $_GET['userId'];
 $policies = [];
 
 if($userId>0)
-    $sql = "SELECT * FROM Insurances WHERE userId='".$userId."' ";
+    $sql = "SELECT * FROM Docs WHERE userId='".$userId."' ";
 else
-    $sql = "SELECT * FROM Insurances,Users WHERE userId=Users.id"; 
+    $sql = "SELECT * FROM Docs,Users WHERE userId=Users.id"; 
 
 $result = $con->query($sql);
 if ($result->num_rows > 0) {

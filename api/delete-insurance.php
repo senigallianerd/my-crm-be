@@ -4,7 +4,7 @@ include "./conf/conf.php";
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM Insurances  WHERE id=".$id;
+$sql = "DELETE FROM Docs  WHERE id=".$id;
 $result = $con->query($sql);
 
 echo json_encode($result);

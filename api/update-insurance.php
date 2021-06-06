@@ -16,7 +16,7 @@ $fattura = $data["fattura"];
 $note = $data["note"];
 $fileName = $data["fileName"];
 
-$sql = "UPDATE `Insurances` SET `numero` = '".$numero."', 
+$sql = "UPDATE `Docs` SET `numero` = '".$numero."', 
                                 `ramo` = '".$ramo."', 
                                 `compagnia` = '".$compagnia."', 
                                 `targa` = '".$targa."', 
@@ -26,7 +26,7 @@ $sql = "UPDATE `Insurances` SET `numero` = '".$numero."',
                                 `premioRata` = '".$premioRata."', 
                                 `fattura` = '".$fattura."', 
                                 `fileName` = '".$fileName."', 
-                                `note` =  '".$note."' WHERE `Insurances`.`id` = ".$id.";";
+                                `note` =  '".$note."' WHERE `Docs`.`id` = ".$id.";";
 $result = $con->query($sql);
 
 echo json_encode($result);
