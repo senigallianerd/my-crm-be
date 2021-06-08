@@ -5,13 +5,13 @@ include "./conf/conf.php";
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = $data["fileName"];
 $insuranceId = $data["insuranceId"];
-$scadenzaAnnuale = $data["scadenzaAnnuale"];
+$date = $data["data"];
 $userId = $data["userId"];
-$compagnia = $data["compagnia"];
-$tipo = $data["tipo"];
+$sottotipoDoc = $data["sottotipoDoc"];
+$tipoDoc = $data["tipoDoc"];
 
-$sql = "INSERT INTO `Docs` (`id`, `compagnia`, `fileName`, `userId`, `scadenzaAnnuale`, `tipo`) VALUES 
-(NULL, '".$compagnia."', '".$fileName."', '".$userId."', '".$scadenzaAnnuale."', '".$tipo."')";
+$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`) VALUES 
+(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."')";
 
 $result = $con->query($sql);
 

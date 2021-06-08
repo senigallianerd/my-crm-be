@@ -6,9 +6,9 @@ $data = json_decode(file_get_contents('php://input'), true);
 $id = $data["id"];
 $numero = $data["numero"];
 $ramo = $data["ramo"];
-$compagnia = $data["compagnia"];
+$sottotipoDoc = $data["sottotipoDoc"];
 $targa = $data["targa"];
-$scadenzaAnnuale = $data["scadenzaAnnuale"];
+$data = $data["data"];
 $frazionamento = $data["frazionamento"];
 $premioAnnuale =$data["premioAnnuale"];
 $premioRata = $data["premioRata"];
@@ -18,9 +18,9 @@ $fileName = $data["fileName"];
 
 $sql = "UPDATE `Docs` SET `numero` = '".$numero."', 
                                 `ramo` = '".$ramo."', 
-                                `compagnia` = '".$compagnia."', 
+                                `sottotipoDoc` = '".$sottotipoDoc."', 
                                 `targa` = '".$targa."', 
-                                `scadenzaAnnuale` = '".$scadenzaAnnuale."', 
+                                `data` = '".$data."', 
                                 `frazionamento` = '".$frazionamento."', 
                                 `premioAnnuale` = '".$premioAnnuale."', 
                                 `premioRata` = '".$premioRata."', 

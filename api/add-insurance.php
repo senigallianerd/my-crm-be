@@ -5,9 +5,10 @@ include "./conf/conf.php";
 $data = json_decode(file_get_contents('php://input'), true);
 $numero = $data["numero"];
 $ramo = $data["ramo"];
-$compagnia = $data["compagnia"];
+$sottotipoDoc = $data["sottotipoDoc"];
+$tipoDoc = $data["tipoDoc"];
 $targa = $data["targa"];
-$scadenzaAnnuale = $data["scadenzaAnnuale"];
+$data = $data["data"];
 $frazionamento = $data["frazionamento"];
 $premioAnnuale =$data["premioAnnuale"];
 $premioRata = $data["premioRata"];
@@ -20,9 +21,10 @@ if($numero)
     $sql = "INSERT INTO `Docs` (`id`, 
                                        `numero`, 
                                        `ramo`, 
-                                       `compagnia`, 
+                                       `sottotipoDoc`, 
+                                       `tipoDoc`, 
                                        `targa`, 
-                                       `scadenzaAnnuale`, 
+                                       `data`, 
                                        `frazionamento`, 
                                        `premioAnnuale`, 
                                        `premioRata`, 
@@ -32,9 +34,10 @@ if($numero)
                                        `fileName`) VALUES (NULL, 
                                         '".$numero."', 
                                         '".$ramo."', 
-                                        '".$compagnia."', 
+                                        '".$sottotipoDoc."', 
+                                        '".$tipoDoc."', 
                                         '".$targa."', 
-                                        '".$scadenzaAnnuale."', 
+                                        '".$data."', 
                                         '".$frazionamento."', 
                                         '".$premioAnnuale."', 
                                         '".$premioRata."', 
