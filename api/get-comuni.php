@@ -4,7 +4,10 @@ include "./conf/conf.php";
 
 $comuni = [];
 
-$sql = "SELECT sigla,comune FROM Comuni,Province WHERE Comuni.cod_provincia = Province.id";
+$prov = $_GET['prov'];
+
+$sql = "SELECT comune FROM Comuni,Province WHERE sigla='".$prov."' AND Comuni.cod_provincia = Province.cod_provincia";
+
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
  while($row = $result->fetch_assoc()) {
