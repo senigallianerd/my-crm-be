@@ -29,6 +29,7 @@ $hobby = $data["hobby"];
 $CAP = $data["CAP"];
 $comune = $data["comune"];
 $provincia = $data["provincia"];
+$civico = $data["civico"];
 
 $CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
@@ -57,8 +58,9 @@ $sql = "UPDATE `Users` SET
                 `hobby` = '".$hobby."',
                 `CAP` = '".$CAP."' ,
                 `comune` = '".$comune."' ,
-                `provincia` = '".$provincia."' 
-                WHERE `Users`.`id` = ".$id.";";
+                `provincia` = '".$provincia."',
+                `civico` = '".$civico."' 
+        WHERE `Users`.`id` = ".$id.";";
 
 $result = $con->query($sql);
 
