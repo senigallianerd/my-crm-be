@@ -26,7 +26,11 @@ $partitaIva = $data["partitaIva"];
 $sdi = $data["sdi"];
 $iban = $data["iban"];
 $hobby = $data["hobby"];
+$CAP = $data["CAP"];
+$comune = $data["comune"];
+$provincia = $data["provincia"];
 
+$CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
 $sql = "UPDATE `Users` SET 
                 `nome` = '".$nome."' ,
@@ -50,7 +54,10 @@ $sql = "UPDATE `Users` SET
                 `partitaIva` = '".$partitaIva."' ,
                 `sdi` = '".$sdi."' ,
                 `iban` = '".$iban."' ,
-                `hobby` = '".$hobby."' 
+                `hobby` = '".$hobby."',
+                `CAP` = '".$CAP."' ,
+                `comune` = '".$comune."' ,
+                `provincia` = '".$provincia."' 
                 WHERE `Users`.`id` = ".$id.";";
 
 $result = $con->query($sql);
