@@ -25,12 +25,17 @@ $partitaIva = $data["partitaIva"];
 $sdi = $data["sdi"];
 $iban = $data["iban"];
 $hobby = $data["hobby"];
+$CAP = $data["CAP"];
+$comune = $data["comune"];
+$provincia = $data["provincia"];
+
+$CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
 if(!$nome || !$cognome)
     return;
 
 $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `tipoContatto`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
-                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`) 
+                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`) 
                             VALUES 
                             (NULL, 
                             '".$nome."', 
@@ -54,7 +59,10 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".$partitaIva."', 
                             '".$sdi."', 
                             '".$iban."', 
-                            '".$hobby."');";
+                            '".$hobby."', 
+                            '".$CAP."', 
+                            '".$comune."', 
+                            '".$provincia."');";
 
 
 
