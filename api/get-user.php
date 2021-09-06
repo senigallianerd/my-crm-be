@@ -12,7 +12,7 @@ if($id)
 else{
     $multiple = true;
     $users = [];
-    $sql = "SELECT * FROM Users WHERE nome LIKE '".$nome."%' OR cognome LIKE '".$cognome."%'";
+    $sql = "SELECT * FROM Users WHERE nome LIKE '".$nome."%' AND cognome LIKE '".$cognome."%'";
 }
 
 $result = $con->query($sql);

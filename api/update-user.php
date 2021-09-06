@@ -30,6 +30,9 @@ $CAP = $data["CAP"];
 $comune = $data["comune"];
 $provincia = $data["provincia"];
 $civico = $data["civico"];
+$datiAggiuntivi = $data["datiAggiuntivi"];
+$vecchioCRM = $data["vecchioCRM"];
+
 
 $CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
@@ -59,7 +62,9 @@ $sql = "UPDATE `Users` SET
                 `CAP` = '".$CAP."' ,
                 `comune` = '".$comune."' ,
                 `provincia` = '".$provincia."',
-                `civico` = '".$civico."' 
+                `civico` = '".$civico."' ,
+                `datiAggiuntivi` = '".$datiAggiuntivi."' ,
+                `vecchioCRM` = '".$vecchioCRM."' 
         WHERE `Users`.`id` = ".$id.";";
 
 $result = $con->query($sql);
