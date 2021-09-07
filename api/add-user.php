@@ -30,7 +30,7 @@ $comune = $data["comune"];
 $provincia = $data["provincia"];
 $civico = $data["civico"];
 $datiAggiuntivi = $data["datiAggiuntivi"];
-$vecchioCRM = $data["vecchioCRM"];
+$datiRaw = $data["datiRaw"];
 
 $CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
@@ -38,7 +38,7 @@ if(!$nome || !$cognome)
     return;
 
 $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `tipoContatto`, `cellulare`, `telCasa`, `telUfficio`, `email`, `secondaEmail`, 
-                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`,`civico`,`datiAggiuntivi`,`vecchioCRM`) 
+                            `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`,`civico`,`datiAggiuntivi`,`datiRaw`) 
                             VALUES 
                             (NULL, 
                             '".$nome."', 
@@ -68,7 +68,7 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".$provincia."', 
                             '".$civico."', 
                             '".$datiAggiuntivi."', 
-                            '".$vecchioCRM."');";
+                            '".$datiRaw."');";
 
 
 
