@@ -1,16 +1,18 @@
 <?php
  
 include "./conf/conf.php";
- 
+
+// mi prendo i parametri inviati da client 
 $params = json_decode(file_get_contents('php://input'), true);
+
 $users = [];
 
+// indice colonne, utile per l'ordinamento (sorting utente), perchè l'utente invia l'indice della colonna, quindi serve questo mapping
  $columns = array(
  0 => 'id',
  1 => 'cognome', 
  2 => 'nome'
  );
-
 
  $where_condition = $sqlTot = $sqlRec = "";
  
