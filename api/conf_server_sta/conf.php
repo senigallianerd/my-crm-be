@@ -2,10 +2,10 @@
 
 include "cors.php";
 
-$servername = "80.88.84.243";
-$username = "j58ro305_inic";
-$password = "@Silli2021!";
-$dbname = "j58ro305_crm";
+$servername = "89.46.111.224";
+$username = "Sql1464427";
+$password = "5d72knf085";
+$dbname = "Sql1464427_5";
 $con = mysqli_connect("$servername","$username","$password","$dbname") or die ("could not connect database");
 
 ?>
