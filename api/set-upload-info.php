@@ -12,9 +12,11 @@ $tipoDoc = $data["tipoDoc"];
 $frazionamentoSemestrale = $data["frazionamentoSemestrale"] ? 'true' : 'false';
 $targa = $data["targa"];
 $note = $data["note"];
+$numero = $data["numero"];
+$premioRata = $data["premioRata"];
 
-$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamentoSemestrale`, `targa`,`note`) VALUES 
-(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamentoSemestrale."', '".$targa."' , '".$note."')";
+$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamentoSemestrale`, `targa`,`note`,`numero`,`premioRata`) VALUES 
+(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamentoSemestrale."', '".$targa."' , '".$note."', '".$numero."', '".$premioRata."')";
 
 $result = $con->query($sql);
 
