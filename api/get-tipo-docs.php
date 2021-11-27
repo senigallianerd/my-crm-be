@@ -4,7 +4,7 @@ include "./conf/conf.php";
 
 $users = [];
 
-$sql = "SELECT nome,colonne_doc FROM Tipo_Docs";
+$sql = "SELECT * FROM Tipo_Docs";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
  while($row = $result->fetch_assoc()) {
