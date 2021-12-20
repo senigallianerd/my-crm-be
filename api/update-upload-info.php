@@ -9,7 +9,7 @@ $ramo = $data["ramo"];
 $sottotipoDoc = $data["sottotipoDoc"];
 $targa = $data["targa"];
 $date = $data["singleDate"];
-$frazionamentoSemestrale = $data["frazionamentoSemestrale"];
+$frazionamento = $data["frazionamento"];
 $premioAnnuale =$data["premioAnnuale"];
 $premioRata = $data["premioRata"];
 $fattura = $data["fattura"];
@@ -21,7 +21,7 @@ $sql = "UPDATE `Docs` SET `numero` = '".$numero."',
                                 `sottotipoDoc` = '".$sottotipoDoc."', 
                                 `targa` = '".$targa."', 
                                 `data` = '".$date."', 
-                                `frazionamentoSemestrale` = '".$frazionamentoSemestrale."', 
+                                `frazionamento` = '".$frazionamento."', 
                                 `premioAnnuale` = '".$premioAnnuale."', 
                                 `premioRata` = '".$premioRata."', 
                                 `fattura` = '".$fattura."', 
