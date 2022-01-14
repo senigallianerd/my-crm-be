@@ -15,8 +15,17 @@ $users = [];
  );
 
  $where_condition = $sqlTot = $sqlRec = "";
+
+ $inputSearch = $params['search']['value'];
+ $splitInput = explode(" ", $inputSearch);
+
+ if(count($splitInput)==2){
+   $where_condition .= " WHERE ";
+   $where_condition .= " ( nome LIKE '%".$splitInput[1]."%' ";    
+   $where_condition .= " AND cognome LIKE '%".$splitInput[0]."%' )";
+ }
  
- if( !empty($params['search']['value']) ) {
+ else if( !empty($params['search']['value']) ) {
  $where_condition .= " WHERE ";
  $where_condition .= " ( nome LIKE '%".$params['search']['value']."%' ";    
  $where_condition .= " OR cognome LIKE '%".$params['search']['value']."%' )";
