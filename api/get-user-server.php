@@ -51,7 +51,9 @@ else{  // GESTIONE RICERCA NOME O COGNOME CLIENTE
     {
         $where_condition .= " WHERE ";
         $where_condition .= " ( nome LIKE '%" . $splitInput[1] . "%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . "%' )";
+        $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . "%' ) OR ";
+        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . "%' ";
+        $where_condition .= " AND cognome LIKE '%" . $splitInput[1] . "%' )";
     }
     else if (!empty($params['search']['value'])){
         $where_condition .= " WHERE ";
