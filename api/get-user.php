@@ -4,7 +4,7 @@ include "./conf/conf.php";
 
 $id = $_GET['id'];
 $nome = $_GET['nome'];
-$cognome = $_GET['cognome'];
+$cognome = addslashes($_GET['cognome']);
 $multiple = false;
 
 if($id)
