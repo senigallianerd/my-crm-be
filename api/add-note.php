@@ -14,12 +14,10 @@ if($data)
                                 `testo`, 
                                 `data`, 
                                 `idUtente`) VALUES (NULL, 
-                                        '".$titolo."', 
-                                        '".$testo."', 
-                                        '".$date."', 
+                                        '".addslashes($titolo)."', 
+                                        '".addslashes($testo)."', 
+                                        '".addslashes($date)."', 
                                         '".$idUtente."');";
-
-
 
 $result = $con->query($sql);
 
