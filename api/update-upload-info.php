@@ -16,17 +16,20 @@ $fattura = $data["fattura"];
 $note = $data["noteDoc"];
 $fileName = $data["fileName"];
 
+$dateQuery = $date ? "`data` = '".$date."'," : "`data` = NULL ,";
+
 $sql = "UPDATE `Docs` SET `numero` = '".$numero."', 
                                 `ramo` = '".$ramo."', 
                                 `sottotipoDoc` = '".$sottotipoDoc."', 
                                 `targa` = '".$targa."', 
-                                `data` = '".$date."', 
+                                ".$dateQuery."
                                 `frazionamento` = '".$frazionamento."', 
                                 `premioAnnuale` = '".$premioAnnuale."', 
                                 `premioRata` = '".$premioRata."', 
                                 `fattura` = '".$fattura."', 
                                 `fileName` = '".$fileName."', 
                                 `note` =  '".$note."' WHERE `Docs`.`id` = ".$id.";";
+
 $result = $con->query($sql);
 
 echo json_encode($result);
