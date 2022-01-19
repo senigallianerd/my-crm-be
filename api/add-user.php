@@ -36,7 +36,7 @@ $datiRaw = $data["datiRaw"];
 
 $CAP = is_array($CAP) ? $CAP[0] : $CAP; 
 
-if(!$nome || !$cognome)
+if(!$cognome)
     return;
 
 $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `collaboratore1`, `tipoContatto`, `cellulare`, `telCasa`, `telUfficio`, `fax`, `email`, `secondaEmail`, `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`,`civico`,`datiAggiuntivi`,`datiRaw`) 
@@ -72,8 +72,6 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".addslashes($civico)."', 
                             '".addslashes($datiAggiuntivi)."', 
                             '".addslashes($datiRaw)."');";
-
-
 
 $result = $con->query($sql);
 
