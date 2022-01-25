@@ -47,13 +47,21 @@ $con->close();
 
 }
 else{  // GESTIONE RICERCA NOME O COGNOME CLIENTE
-    if (count($splitInput) == 2)
-    {
+    if (count($splitInput) == 2){
         $where_condition .= " WHERE ";
         $where_condition .= " ( nome LIKE '%" . $splitInput[1] . "%' ";
         $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . "%' ) OR ";
         $where_condition .= " ( nome LIKE '%" . $splitInput[0] . "%' ";
         $where_condition .= " AND cognome LIKE '%" . $splitInput[1] . "%' )";
+    }
+    else if (count($splitInput) == 3){ // ricerca del tipo nome e cognome del tipo "CARLO DE ROSSI"
+        $where_condition .= " WHERE ";
+        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . ' ' . $splitInput[1] ."%' ";
+        $where_condition .= " AND cognome LIKE '%" . $splitInput[2] . "%' ) OR ";
+        $where_condition .= " ( nome LIKE '%" . $splitInput[2] . "%' ";
+        $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . ' ' . $splitInput[1] . "%' )OR ";
+        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . "%' ";
+        $where_condition .= " AND cognome LIKE '%" . $splitInput[1] . ' ' . $splitInput[2] . "%' )";
     }
     else if (!empty($params['search']['value'])){
         $where_condition .= " WHERE ";
