@@ -47,21 +47,8 @@ $con->close();
 
 }
 else{  // GESTIONE RICERCA NOME O COGNOME CLIENTE
-    if (count($splitInput) == 2){
-        $where_condition .= " WHERE ";
-        $where_condition .= " ( nome LIKE '%" . $splitInput[1] . "%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . "%' ) OR ";
-        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . "%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[1] . "%' )";
-    }
-    else if (count($splitInput) == 3){ // ricerca del tipo nome e cognome del tipo "CARLO DE ROSSI"
-        $where_condition .= " WHERE ";
-        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . ' ' . $splitInput[1] ."%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[2] . "%' ) OR ";
-        $where_condition .= " ( nome LIKE '%" . $splitInput[2] . "%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[0] . ' ' . $splitInput[1] . "%' )OR ";
-        $where_condition .= " ( nome LIKE '%" . $splitInput[0] . "%' ";
-        $where_condition .= " AND cognome LIKE '%" . $splitInput[1] . ' ' . $splitInput[2] . "%' )";
+    if (count($splitInput) >= 1){ // ricerca del tipo nome e cognome del tipo "CARLO DE ROSSI"
+        $where_condition .= "WHERE CONCAT(cognome, ' ', nome) LIKE '%".addSlashes($inputSearch)."%' || CONCAT(nome, ' ', cognome) LIKE '%".addSlashes($inputSearch)."%'";
     }
     else if (!empty($params['search']['value'])){
         $where_condition .= " WHERE ";
@@ -80,9 +67,7 @@ else{  // GESTIONE RICERCA NOME O COGNOME CLIENTE
     }
 
     $sqlRec .= " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
-
     $queryTot = mysqli_query($con, $sqlTot) or die("Database Error:" . mysqli_error($con));
-
     $totalRecords = mysqli_num_rows($queryTot);
 
     $result = $con->query($sqlRec);
