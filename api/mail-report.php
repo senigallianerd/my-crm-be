@@ -61,7 +61,7 @@ $correctYear = $month < 12 ? $year : $year+1;
 echo '<br> Risultati di ricerca del mese: <b>' .$monthToValue[intval($nextMonth)]. '</b> anno: <b>' .$correctYear. '</b>';
 echo '<br><br>';
 
-$sql = "SELECT * FROM Docs,Users WHERE MONTH(data) = ".$nextMonth." and YEAR(data) = ".$correctYear." and UserId = Users.id";
+$sql = "SELECT * FROM Docs,Users WHERE MONTH(data) = ".$nextMonth." and YEAR(data) = ".$correctYear." and UserId = Users.id ORDER BY DATE(data) ASC";
 
 $result = $con->query($sql);
 
