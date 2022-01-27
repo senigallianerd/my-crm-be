@@ -92,6 +92,7 @@ else{
   <?php
 
   foreach($docs as $doc) {
+    $premioRata = $doc['premioRata'] ? $doc['premioRata'] . ' €' : '';
     echo "<tr>
               <td>".$doc['nome']."</td>
               <td>".$doc['cognome']."</td>
@@ -99,7 +100,7 @@ else{
               <td>".$doc['targa']. "</td>
               <td>".addSlashes($doc['noteDoc']). "</td>
               <td>".$doc['frazionamento']. "</td>
-              <td>".$doc['premioRata']." € </td>
+              <td>".$premioRata."</td>
               <td>".date("d/m/Y", strtotime($doc['data']))."</td>
           </tr>";
 }
