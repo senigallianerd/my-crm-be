@@ -1,5 +1,6 @@
 <?php
-ob_start();
+if($_GET['email']){
+  ob_start();
 ?>
 
 <html>
@@ -44,7 +45,6 @@ $monthToValue = array("1"=>"Gennaio", "2"=>"Febbraio", "3"=>"Marzo", "
 
 $month = $_GET['month'];
 $year = $_GET['year'];
-$test = $_GET['test'];
 
 if(!$month)
     $month=date("m");
@@ -110,7 +110,7 @@ $con->close();
 
 function sendMail($text){
   $url = 'https://www.frakorn.it/mail-server/send.php';
-  $data = array('sendTo' => 'frakorn@gmail.com,frakorn1@gmail.com,cini.email@gmail.com', 'message' => $text,'subject' => 'MAIL REPORT','fromName' => 'CRM');
+  $data = array('sendTo' => 'frakorn@gmail.com', 'message' => $text,'subject' => 'MAIL REPORT','fromName' => 'CRM');
   $options = array(
           'http' => array(
           'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -135,9 +135,9 @@ function sendMail($text){
 // ottengo tutto il contenuto HTML della mia pagina
 $html = ob_get_contents();
 
-if(!$test)
+if($_GET['email']=='true')
   sendMail($html);
 
 ob_end_flush();
-
+}
 ?>
