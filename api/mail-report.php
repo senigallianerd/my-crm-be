@@ -61,7 +61,7 @@ $correctYear = $month < 12 ? $year : $year+1;
 echo '<br> Risultati di ricerca del mese: <b>' .$monthToValue[intval($nextMonth)]. '</b> anno: <b>' .$correctYear. '</b>';
 echo '<br><br>';
 
-$sql = "SELECT * FROM Docs,Users WHERE MONTH(data) = ".$nextMonth." and YEAR(data) = ".$correctYear." and UserId = Users.id ORDER BY DATE(data) ASC";
+$sql = "SELECT nome,cognome,numero,targa,frazionamento,premioRata,data, Docs.note as noteDoc FROM Docs,Users WHERE MONTH(data) = ".$nextMonth." and YEAR(data) = ".$correctYear." and UserId = Users.id ORDER BY DATE(data) ASC";
 
 $result = $con->query($sql);
 
@@ -97,7 +97,7 @@ else{
               <td>".$doc['cognome']."</td>
               <td>".$doc['numero']."</td>
               <td>".$doc['targa']. "</td>
-              <td>".addSlashes($doc['note']). "</td>
+              <td>".addSlashes($doc['noteDoc']). "</td>
               <td>".$doc['frazionamento']. "</td>
               <td>".$doc['premioRata']." € </td>
               <td>".date("d/m/Y", strtotime($doc['data']))."</td>
