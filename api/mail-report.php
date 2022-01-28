@@ -92,7 +92,7 @@ else{
   <?php
 
   foreach($docs as $doc) {
-    $premioRata = $doc['premioRata'] ? $doc['premioRata'] . ' €' : '';
+    $premioRata = $doc['premioRata'] ? $doc['premioRata'] . ' &euro;' : '';
     echo "<tr>
               <td>".$doc['nome']."</td>
               <td>".$doc['cognome']."</td>
