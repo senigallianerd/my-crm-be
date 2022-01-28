@@ -109,9 +109,29 @@ else{
 
 $con->close();
 
+function loreSendMail($text){
+	$toEmail ="lorenzo@posta.biz";
+    $subject = "Prossime scadenze";
+    $body = $text;
+    //$headers = "From: noreplay@assicurazionisilli.com\r\n";
+    $headers = implode("\r\n", [
+    'From: Assicurazioni Silli <noreplay@assicurazionisilli.com>',
+    'Reply-To: noreplay@assicurazionisilli.com',
+    'MIME-Version: 1.0',
+    'Content-Type: text/html; charset=ISO-8859-1',
+    'X-Mailer: PHP/' . PHP_VERSION
+	]);
+    $cc = null;
+    $bcc = null;
+    //$return_path = "noreplay@assicurazionisilli.com";
+    //send the email using IMAP
+    $a = imap_mail($toEmail, $subject, $body, $headers, $cc, $bcc, $return_path);
+    echo "Email sent!<br />" .$a;
+}
+
 function sendMail($text){
   $url = 'https://www.frakorn.it/mail-server/send.php';
-  $data = array('sendTo' => 'frakorn@gmail.com', 'message' => $text,'subject' => 'MAIL REPORT','fromName' => 'CRM');
+  $data = array('sendTo' => 'lorenzo@posta.biz', 'message' => $text,'subject' => 'MAIL REPORT','fromName' => 'CRM');
   $options = array(
           'http' => array(
           'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -137,7 +157,8 @@ function sendMail($text){
 $html = ob_get_contents();
 
 if($_GET['email']=='true')
-  sendMail($html);
+  //sendMail($html);
+	loreSendMail($html);
 
 ob_end_flush();
 }
