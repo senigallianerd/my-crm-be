@@ -3,8 +3,7 @@
 include "./conf/conf.php";
 
 $id = $_GET['id'];
-$nome = $_GET['nome'];
-$cognome = addslashes($_GET['cognome']);
+$inputValue = addSlashes($_GET['inputValue']);
 $multiple = false;
 
 if($id)
@@ -12,7 +11,7 @@ if($id)
 else{
     $multiple = true;
     $users = [];
-    $sql = "SELECT * FROM Users WHERE (nome LIKE '".$nome."%' AND cognome LIKE '".$cognome."%') OR (nome = '' AND cognome LIKE '".$nome."%')";
+    $sql = "SELECT * FROM Users WHERE (CONCAT(cognome, ' ', nome) LIKE '%".$inputValue."%' || CONCAT(nome, ' ', cognome) LIKE '%".$inputValue."%') and cognome!= ''";
 }
 
 $result = $con->query($sql);
