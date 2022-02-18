@@ -15,6 +15,7 @@ $premioRata = $data["premioRata"];
 $fattura = $data["fattura"];
 $note = $data["noteDoc"];
 $fileName = $data["fileName"];
+$data2 = $data["data2"];
 
 $dateQuery = $date ? "`data` = '".$date."'," : "`data` = NULL ,";
 
@@ -28,6 +29,7 @@ $sql = "UPDATE `Docs` SET `numero` = '".$numero."',
                                 `premioRata` = '".$premioRata."', 
                                 `fattura` = '".$fattura."', 
                                 `fileName` = '".$fileName."', 
+                                `data2` = '".$data2."', 
                                 `note` =  '".$note."' WHERE `Docs`.`id` = ".$id.";";
 
 $result = $con->query($sql);
