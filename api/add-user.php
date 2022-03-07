@@ -10,6 +10,7 @@ $azienda = $data["azienda"];
 $collaboratore = $data["collaboratore"];
 $collaboratore1 = $data["collaboratore1"];
 $tipoContatto = $data["tipoContatto"];
+$tipoContatto2 = $data["tipoContatto2"];
 $cellulare = $data["cellulare"];
 $telCasa = $data["telCasa"];
 $telUfficio = $data["telUfficio"];
@@ -39,7 +40,7 @@ $CAP = is_array($CAP) ? $CAP[0] : $CAP;
 if(!$cognome)
     return;
 
-$sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `collaboratore1`, `tipoContatto`, `cellulare`, `telCasa`, `telUfficio`, `fax`, `email`, `secondaEmail`, `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`,`civico`,`datiAggiuntivi`,`datiRaw`) 
+$sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collaboratore`, `collaboratore1`, `tipoContatto`, `tipoContatto2`, `cellulare`, `telCasa`, `telUfficio`, `fax`, `email`, `secondaEmail`, `PEC`, `indirizzoResidenza`, `occupazione`, `dataNascita`, `codiceFiscale`, `cartaIdentita`, `dataScadenzaCartaIdentita`,  `partitaIva`, `sdi`, `iban`, `hobby`,`CAP`,`comune`,`provincia`,`civico`,`datiAggiuntivi`,`datiRaw`) 
                             VALUES 
                             (NULL, 
                             '".addslashes($nome)."', 
@@ -49,6 +50,7 @@ $sql = "INSERT INTO `Users` (`id`, `nome`, `cognome`, `note`, `azienda`, `collab
                             '".addslashes($collaboratore)."', 
                             '".addslashes($collaboratore1)."', 
                             '".addslashes($tipoContatto)."', 
+                            '".addslashes($tipoContatto2)."', 
                             '".addslashes($cellulare)."', 
                             '".addslashes($telCasa)."', 
                             '".addslashes($telUfficio)."', 
