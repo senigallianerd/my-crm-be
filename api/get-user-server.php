@@ -22,10 +22,11 @@ $inputSearch = $params['search']['value'];
 $splitInput = explode(" ", $inputSearch);
 
 // GESTIONE RICERCA CON JOIN di CLIENTI CON NUMERO POLIZZA O TARGA
-if (strpos($inputSearch, 'targa') !== false || strpos($inputSearch, 'polizza') !== false && $splitInput[0]==''){
+if (strpos($inputSearch, 'targa') !== false || strpos($inputSearch, 'polizza') !== false){
   $fieldSearch = strpos($inputSearch, 'targa') !== false ? 'targa' : 'numero';
 
   $sql_query = "SELECT U.* FROM Users U LEFT JOIN Docs D ON U.id = D.userId WHERE U.id = D.userId AND D.".$fieldSearch." = '".$splitInput[1]."'";
+
   $totalRecords = mysqli_num_rows($queryTot);
 
   $result = $con->query($sql_query);
