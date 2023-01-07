@@ -16,13 +16,16 @@ $numero = $data["numero"];
 $premioRata = $data["premioRata"];
 $data2 = $data["data2"];
 $data3 = $data["data3"];
+$inviaAvvisoA = $data["inviaAvvisoA"];
 
-$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamento`, `targa`,`note`,`numero`,`premioRata`, `data2`, `data3`) VALUES 
-(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamento."', '".$targa."' , '".$note."', '".$numero."', '".$premioRata."', '".$data2."', '".$data3."')";
+$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamento`, `targa`,`note`,`numero`,`premioRata`, `data2`, `data3`, `inviaAvvisoA`) VALUES 
+(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamento."', '".$targa."' , '".$note."', '".$numero."', '".$premioRata."', '".$data2."', '".$data3."', '".$inviaAvvisoA."')";  
+
 
 $result = $con->query($sql);
 
 echo json_encode($result);
+
 
 $con->close();
 

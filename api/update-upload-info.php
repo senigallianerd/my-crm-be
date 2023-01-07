@@ -17,6 +17,7 @@ $note = $data["noteDoc"];
 $fileName = $data["fileName"];
 $data2 = $data["data2"];
 $data3 = $data["data3"];
+$inviaAvvisoA = $data["inviaAvvisoA"];
 
 $dateQuery = $date ? "`data` = '".$date."'," : "`data` = NULL ,";
 
@@ -32,6 +33,7 @@ $sql = "UPDATE `Docs` SET `numero` = '".$numero."',
                                 `fileName` = '".$fileName."', 
                                 `data2` = '".$data2."', 
                                 `data3` = '".$data3."', 
+                                `inviaAvvisoA` = '".$inviaAvvisoA."', 
                                 `note` =  '".$note."' WHERE `Docs`.`id` = ".$id.";";
 
 $result = $con->query($sql);
