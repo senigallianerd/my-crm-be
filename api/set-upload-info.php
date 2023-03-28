@@ -17,9 +17,10 @@ $premioRata = $data["premioRata"];
 $data2 = $data["data2"];
 $data3 = $data["data3"];
 $inviaAvvisoA = $data["inviaAvvisoA"];
+$competenze = $data["competenze"];
 
-$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamento`, `targa`,`note`,`numero`,`premioRata`, `data2`, `data3`, `inviaAvvisoA`) VALUES 
-(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamento."', '".$targa."' , '".$note."', '".$numero."', '".$premioRata."', '".$data2."', '".$data3."', '".$inviaAvvisoA."')";  
+$sql = "INSERT INTO `Docs` (`id`, `sottotipoDoc`, `fileName`, `userId`, `data`, `tipoDoc`, `frazionamento`, `targa`,`note`,`numero`,`premioRata`, `data2`, `data3`, `inviaAvvisoA`,`competenze`) VALUES 
+(NULL, '".$sottotipoDoc."', '".$fileName."', '".$userId."', '".$date."', '".$tipoDoc."', '".$frazionamento."', '".$targa."' , '".$note."', '".$numero."', '".$premioRata."', '".$data2."', '".$data3."', '".$inviaAvvisoA."', '".$competenze."')";  
 
 
 $result = $con->query($sql);
