@@ -4,7 +4,7 @@ include "./conf/conf.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = $data["fileName"];
-$insuranceId = $data["insuranceId"];
+$insuranceId = isset($_GET['insuranceId']) ? addSlashes($_GET['insuranceId']) : false;
 $date = $data["data"];
 $userId = $data["userId"];
 $sottotipoDoc = $data["sottotipoDoc"];

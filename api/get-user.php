@@ -3,7 +3,7 @@
 include "./conf/conf.php";
 
 $id = $_GET['id'];
-$inputValue = addSlashes($_GET['inputValue']);
+$inputValue = isset($_GET['inputValue']) ? addSlashes($_GET['inputValue']) : false;
 $multiple = false;
 
 if($id)

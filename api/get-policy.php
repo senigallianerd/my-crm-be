@@ -2,7 +2,7 @@
 
 include "./conf/conf.php";
 
-$userId = $_GET['userId'];
+$userId =  isset($_GET['userId']) ? addSlashes($_GET['userId']) : false;
 $policies = [];
 
 if($userId>0)

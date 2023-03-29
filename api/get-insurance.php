@@ -2,10 +2,10 @@
 
 include "./conf/conf.php";
 
-$id = $_GET['id'];
-$userId = $_GET['userId'];
-$type = $_GET['type'];
-$description = $_GET['description'];
+$id = isset($_GET['id']) ? addSlashes($_GET['id']) : false;
+$userId = isset($_GET['userId']) ? addSlashes($_GET['userId']) : false;
+$type = isset($_GET['type']) ? addSlashes($_GET['type']) : false;
+$description = isset($_GET['description']) ? addSlashes($_GET['description']) : false;
 $multiple = false;
 
 if($id)
